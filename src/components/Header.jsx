@@ -57,12 +57,13 @@ const Header = () => {
             Flower Luxe
           </h2>
         </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal gap-6 md:text-base font-semibold">
-            {navList}
-          </ul>
-        </div>
+
         <div className="navbar-end">
+          <div className="hidden lg:flex mr-3">
+            <ul className="menu menu-horizontal gap-6 md:text-base font-semibold">
+              {navList}
+            </ul>
+          </div>
           <a className="border rounded-lg font-semibold md:px-4 md:py-2 py-2 px-3 text-sm md:text-base bg-purple-800 text-white">
             Login
           </a>
