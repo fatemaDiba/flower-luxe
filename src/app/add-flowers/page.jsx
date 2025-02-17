@@ -16,11 +16,11 @@ const AddFlowers = () => {
   };
 
   return (
-    <div>
+    <div className="mt-20 mb-16">
       <div className="flex items-center justify-center">
         <div className="bg-white shadow-xl rounded-lg w-full max-w-3xl p-8">
           <h2 className="text-2xl xl:text-3xl font-bold text-gray-800 text-center mb-6">
-            Add A New Task
+            Add A New <span className="text-purple-800">Flower</span>
           </h2>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             {/* flower Title */}
@@ -37,7 +37,7 @@ const AddFlowers = () => {
                 {...register("flower_name", {
                   required: "Flower Name Is Required",
                 })}
-                placeholder="e.g., Watch my YouTube video"
+                placeholder="e.g., Daisy"
                 className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
               />
               {errors.title && (
@@ -114,7 +114,7 @@ const AddFlowers = () => {
                 {...register("photo", {
                   required: "flower Image Is Required",
                 })}
-                placeholder="Paste an image URL to attract workers"
+                placeholder="Paste an image URL to attract customers"
                 className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
               />
               {errors.photo && (
@@ -128,7 +128,7 @@ const AddFlowers = () => {
             <div>
               <button
                 type="submit"
-                className="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md shadow-md"
+                className="w-full bg-purple-900 hover:bg-purple-800 text-white font-medium py-2 px-4 rounded-md shadow-md"
               >
                 Add Flower
               </button>
