@@ -53,7 +53,7 @@ const Header = () => {
               {navList}
             </ul>
           </div>
-          <h2 className="font-bold text-xl md:text-3xl text-purple-900">
+          <h2 className="font-bold text-xl md:text-3xl text-purple-800">
             Flower Luxe
           </h2>
         </div>
@@ -64,7 +64,7 @@ const Header = () => {
               {navList}
             </ul>
           </div>
-          <a className="border rounded-lg font-semibold md:px-4 md:py-2 py-2 px-3 text-sm md:text-base bg-purple-800 text-white">
+          <a className="border rounded-lg font-semibold md:px-4 md:py-2 py-2 px-3 text-sm md:text-base bg-purple-800 hover:bg-purple-700 text-white">
             Login
           </a>
         </div>

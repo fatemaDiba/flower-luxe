@@ -1,8 +1,8 @@
 const Blog = () => {
   return (
-    <section className="py-16 bg-pink-50">
+    <section className="py-16 mb-14">
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-extrabold text-center text-purple-700">
+        <h2 className="text-4xl font-extrabold text-center text-purple-800">
           Flower Care & Styling Tips
         </h2>
         <p className="text-gray-600 text-center mt-3 max-w-xl mx-auto">
@@ -27,7 +27,7 @@ const Blog = () => {
             </p>
             <a
               href="#"
-              className="text-purple-600 font-medium mt-3 inline-block"
+              className="text-purple-700 font-medium mt-3 inline-block"
             >
               Read More →
             </a>
@@ -49,7 +49,7 @@ const Blog = () => {
             </p>
             <a
               href="#"
-              className="text-purple-600 font-medium mt-3 inline-block"
+              className="text-purple-700 font-medium mt-3 inline-block"
             >
               Read More →
             </a>
@@ -71,7 +71,7 @@ const Blog = () => {
             </p>
             <a
               href="#"
-              className="text-purple-600 font-medium mt-3 inline-block"
+              className="text-purple-700 font-medium mt-3 inline-block"
             >
               Read More →
             </a>

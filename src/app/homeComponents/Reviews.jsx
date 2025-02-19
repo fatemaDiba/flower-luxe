@@ -60,11 +60,11 @@ const Reviews = () => {
   ];
 
   return (
-    <section className="w-11/12 mx-auto px-6 py-12">
+    <section className="w-11/12 mx-auto px-6 mb-16">
       <h2 className="text-gray-500 text-sm uppercase">Testimonial</h2>
       <h3 className="text-3xl font-bold mt-2">
         23k+ Customers gave their
-        <span className="text-purple-700"> Feedback</span>
+        <span className="text-purple-800"> Feedback</span>
       </h3>
 
       {/* Swiper Slider */}

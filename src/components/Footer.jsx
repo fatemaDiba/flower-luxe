@@ -3,10 +3,10 @@ import { FaFacebook, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="bg-gray-100">
+    <div className="bg-pink-100">
       <footer className="footer w-11/12 md:container xl:w-11/12 mx-auto text-black/70 py-10">
         <div>
-          <h2 className="font-bold text-xl md:text-2xl text-purple-900">
+          <h2 className="font-bold text-xl md:text-2xl text-purple-800">
             Flower Luxe
           </h2>
           <p className="w-[70%]">

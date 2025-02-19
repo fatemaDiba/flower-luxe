@@ -3,7 +3,7 @@
 const Banner = () => {
   return (
     <div
-      className="relative h-screen flex items-center justify-center bg-fixed bg-cover bg-center text-white"
+      className="relative h-screen flex items-center justify-center bg-fixed bg-cover bg-center text-white mb-16"
       style={{ backgroundImage: "url('/i1.jpg')" }}
     >
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
