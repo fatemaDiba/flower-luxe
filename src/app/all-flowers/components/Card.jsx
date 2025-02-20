@@ -9,7 +9,7 @@ const Card = () => {
           <Image
             src="/i1.jpg"
             alt="flower_img"
-            width={50}
+            width={20}
             height={50}
             className="rounded-xl w-full h-full object-cover"
           />
@@ -26,7 +26,7 @@ const Card = () => {
         </div>
         <Link
           href={"/"}
-          className="mt-auto bg-purple-900 text-white px-4 py-2 rounded-lg font-semibold hover:bg-purple-800 transition-colors text-center"
+          className="mt-auto bg-purple-800 text-white px-4 py-2 rounded-lg font-semibold hover:bg-purple-700 transition-colors text-center"
         >
           View Details
         </Link>

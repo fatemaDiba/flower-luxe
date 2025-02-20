@@ -11,12 +11,14 @@ const Mail = () => {
           <div className="lg:mb-0 mb-10">
             <div className="w-full h-full">
               <div className="relative h-full">
-                <Image
-                  src="/i3.jpg"
-                  alt="Contact Us"
-                  layout="fill"
-                  className="w-full h-full object-cover lg:rounded-l-2xl rounded-2xl bg-blend-multiply"
-                />
+                <div className="relative w-full md:h-full min-h-96">
+                  <Image
+                    src="/i3.jpg"
+                    alt="Contact Us"
+                    fill
+                    className="  object-cover lg:rounded-l-2xl rounded-2xl "
+                  />
+                </div>
 
                 <div className="absolute bottom-0 w-full lg:p-11 p-5">
                   <div className="bg-white rounded-lg p-6 block">

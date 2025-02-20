@@ -1,29 +1,14 @@
-"use client"; //pathname nitesi tai
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import {
+  RegisterLink,
+  LoginLink,
+  LogoutLink,
+} from "@kinde-oss/kinde-auth-nextjs/components";
+import NavItems from "./NavItems";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-
-const Header = () => {
-  const pathname = usePathname();
-  const navList = (
-    <>
-      <Link href="/" className={`link ${pathname === "/" ? "active" : ""}`}>
-        <li>Home</li>
-      </Link>
-      <Link
-        href="/add-flowers"
-        className={`link ${pathname === "/add-flowers" ? "active" : ""}`}
-      >
-        <li>Add Flower</li>
-      </Link>
-      <Link
-        href="/all-flowers"
-        className={`link ${pathname === "/all-flowers" ? "active" : ""}`}
-      >
-        <li>All Flowers</li>
-      </Link>
-    </>
-  );
+const Header = async () => {
+  const { getUser } = getKindeServerSession();
+  const user = await getUser();
 
   return (
     <div className="fixed z-50 top-0 bg-white  w-full">
@@ -50,7 +35,7 @@ const Header = () => {
               tabIndex={0}
               className="menu menu-sm space-y-3 dropdown-content font-semibold bg-base-100 rounded-box z-[1] mt-6 w-36 p-4 shadow"
             >
-              {navList}
+              <NavItems></NavItems>
             </ul>
           </div>
           <h2 className="font-bold text-xl md:text-3xl text-purple-800">
@@ -61,12 +46,23 @@ const Header = () => {
         <div className="navbar-end">
           <div className="hidden lg:flex mr-3">
             <ul className="menu menu-horizontal gap-6 md:text-base font-semibold">
-              {navList}
+              <NavItems></NavItems>
             </ul>
           </div>
-          <a className="border rounded-lg font-semibold md:px-4 md:py-2 py-2 px-3 text-sm md:text-base bg-purple-800 hover:bg-purple-700 text-white">
-            Login
-          </a>
+          {!user ? (
+            <>
+              <LoginLink className="border rounded-lg font-semibold md:px-4 md:py-2 py-2 px-3 text-sm md:text-base bg-purple-800 hover:bg-purple-700 text-white">
+                Login
+              </LoginLink>
+              <RegisterLink className="border rounded-lg font-semibold md:px-4 md:py-2 py-2 px-3 text-sm md:text-base bg-purple-800 hover:bg-purple-700 text-white">
+                Register
+              </RegisterLink>
+            </>
+          ) : (
+            <LogoutLink className="border rounded-lg font-semibold md:px-4 md:py-2 py-2 px-3 text-sm md:text-base bg-purple-800 hover:bg-purple-700 text-white">
+              Logout
+            </LogoutLink>
+          )}
         </div>
       </div>
     </div>
