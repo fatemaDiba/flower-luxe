@@ -4,7 +4,7 @@ import { FaFacebook, FaLinkedin } from "react-icons/fa";
 const Footer = () => {
   return (
     <div className="bg-pink-100">
-      <footer className="footer w-11/12 md:container xl:w-11/12 mx-auto text-black/70 py-10">
+      <footer className="footer w-11/12  mx-auto text-black/70 py-10">
         <div>
           <h2 className="font-bold text-xl md:text-2xl text-purple-800">
             Flower Luxe
@@ -31,7 +31,7 @@ const Footer = () => {
           <a className="link-hover">Cookie policy</a>
         </nav>
       </footer>
-      <div className="w-11/12 md:container xl:w-11/12 mx-auto pb-10">
+      <div className="w-11/12  mx-auto pb-10">
         <div className="border border-t-1 border-black/30 my-10 w-full"></div>
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-black/80 font-medium">

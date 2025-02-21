@@ -51,10 +51,10 @@ const Header = async () => {
           </div>
           {!user ? (
             <>
-              <LoginLink className="border rounded-lg font-semibold md:px-4 md:py-2 py-2 px-3 text-sm md:text-base bg-purple-800 hover:bg-purple-700 text-white">
+              <LoginLink className="mr-3 border rounded-lg font-semibold md:px-4 md:py-2 py-2 px-3 text-sm md:text-base bg-purple-800 hover:bg-purple-700 text-white">
                 Login
               </LoginLink>
-              <RegisterLink className="border rounded-lg font-semibold md:px-4 md:py-2 py-2 px-3 text-sm md:text-base bg-purple-800 hover:bg-purple-700 text-white">
+              <RegisterLink className="border rounded-lg font-semibold md:px-4 md:py-2 py-2 px-3 text-sm md:text-base text-purple-800 bg-gray-50 hover:bg-purple-700 hover:text-white">
                 Register
               </RegisterLink>
             </>

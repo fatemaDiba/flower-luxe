@@ -1,7 +1,7 @@
 const Blog = () => {
   return (
     <section className="py-16 mb-14">
-      <div className="container mx-auto px-6">
+      <div className="w-11/12 mx-auto px-6">
         <h2 className="text-4xl font-extrabold text-center text-purple-800">
           Flower Care & Styling Tips
         </h2>
@@ -10,7 +10,7 @@ const Blog = () => {
           your blooms fresh and elegant.
         </p>
 
-        <div className="grid md:grid-cols-3 gap-8 mt-10">
+        <div className="grid md:grid-cols-3 md:gap-8 xl:gap-10 mt-10">
           {/* Blog Card 1 */}
           <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
             <img

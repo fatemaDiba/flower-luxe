@@ -3,12 +3,12 @@
 const Banner = () => {
   return (
     <div
-      className="relative h-screen flex items-center justify-center bg-fixed bg-cover bg-center text-white mb-16"
+      className="relative h-screen 2xl:h-[90vh] flex items-center justify-center bg-fixed bg-cover bg-center text-white mb-16"
       style={{ backgroundImage: "url('/i1.jpg')" }}
     >
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-      <div className="relative z-10 text-center px-6 md:px-12">
-        <h1 className="text-2xl md:text-4xl xl:text-5xl font-bold">
+      <div className="relative z-10 text-center px-6 md:px-12 ">
+        <h1 className="text-2xl md:text-4xl xl:text-5xl font-bold w-full 2xl:w-8/12 mx-auto">
           Welcome to Flower Luxe, where elegance meets nature’s beauty.
         </h1>
         <p className="mt-4 text-base md:text-lg max-w-2xl mx-auto">
