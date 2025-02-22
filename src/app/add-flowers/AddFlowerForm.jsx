@@ -97,7 +97,7 @@ const AddFlowerForm = ({ insertFlower }) => {
           htmlFor="flower_image_url"
           className="block text-sm font-medium text-gray-700"
         >
-          Task Image URL
+          Flower Image URL
         </label>
         <input
           type="url"
