@@ -1,5 +1,9 @@
 "use client";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
+
+const imgBB_key = import.meta.env.VITE_IMG_API_key;
+const hostingAPI = `https://api.imgbb.com/1/upload?key=${imgBB_key}`;
 
 const AddFlowerForm = ({ insertFlower }) => {
   const {
@@ -10,11 +14,46 @@ const AddFlowerForm = ({ insertFlower }) => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    const result = await insertFlower(data);
+    const imgFile = new FormData();
+    imgFile.append("image", data.photo[0]);
+
+    try {
+      const response = await fetch(hostingAPI, {
+        method: "POST",
+        body: imgFile,
+      });
+      const res = await response.json();
+
+      if (!res.success) {
+        throw new Error("Image upload failed");
+      }
+
+      const image = res.data.display_url;
+      const flowerData = { ...data, image };
+
+      const result = await insertFlower(flowerData);
+      if (result.acknowledged) {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Successfully added flower!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        reset();
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong while adding the flower!",
+      });
+    }
   };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-      {/* flower Title */}
+      {/* Flower Name */}
       <div>
         <label
           htmlFor="flower_name"
@@ -25,20 +64,18 @@ const AddFlowerForm = ({ insertFlower }) => {
         <input
           type="text"
           id="flower_name"
-          {...register("flower_name", {
-            required: "Flower Name Is Required",
-          })}
+          {...register("flower_name", { required: "Flower Name is required" })}
           placeholder="e.g., Daisy"
-          className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+          className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-purple-500"
         />
-        {errors.title && (
+        {errors.flower_name && (
           <p className="text-red-500 text-sm font-semibold">
             {errors.flower_name.message}
           </p>
         )}
       </div>
 
-      {/* flower Detail */}
+      {/* Flower Detail */}
       <div>
         <label
           htmlFor="flower_detail"
@@ -50,12 +87,12 @@ const AddFlowerForm = ({ insertFlower }) => {
           id="flower_detail"
           rows="4"
           {...register("flower_detail", {
-            required: "Flower Detail Is Required",
+            required: "Flower Detail is required",
           })}
           placeholder="Provide a detailed description of the flower..."
-          className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+          className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-purple-500"
         ></textarea>
-        {errors.task_detail && (
+        {errors.flower_detail && (
           <p className="text-red-500 text-sm font-semibold">
             {errors.flower_detail.message}
           </p>
@@ -75,14 +112,11 @@ const AddFlowerForm = ({ insertFlower }) => {
           id="price"
           min={1}
           {...register("price", {
-            required: "Price Is Required",
-            min: {
-              value: 1,
-              message: "Minimum value is 1", // Custom error message
-            },
+            required: "Price is required",
+            min: { value: 1, message: "Minimum value is 1" },
           })}
           placeholder="e.g., 5"
-          className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+          className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-purple-500"
         />
         {errors.price && (
           <p className="text-red-500 text-sm font-semibold">
@@ -91,22 +125,53 @@ const AddFlowerForm = ({ insertFlower }) => {
         )}
       </div>
 
-      {/* flower Image URL */}
+      {/* Occasion */}
+      <div>
+        <label
+          htmlFor="occasion"
+          className="block text-sm font-medium text-gray-700"
+        >
+          Occasion
+        </label>
+        <select
+          id="occasion"
+          {...register("occasion", { required: "Please select an occasion" })}
+          className="select select-bordered w-full focus:outline-none focus:ring-1 focus:ring-purple-500"
+          defaultValue=""
+        >
+          <option value="" disabled>
+            Select Occasion
+          </option>
+          <option>Anniversary</option>
+          <option>Valentine's Day</option>
+          <option>Sympathy</option>
+          <option>Wedding</option>
+          <option>Proposal</option>
+          <option>Birthday</option>
+          <option>Get Well Soon</option>
+          <option>Housewarming</option>
+          <option>Funeral</option>
+        </select>
+        {errors.occasion && (
+          <p className="text-red-500 text-sm font-semibold">
+            {errors.occasion.message}
+          </p>
+        )}
+      </div>
+
+      {/* Flower Image Upload */}
       <div>
         <label
           htmlFor="flower_image_url"
           className="block text-sm font-medium text-gray-700"
         >
-          Flower Image URL
+          Flower Image
         </label>
         <input
-          type="url"
+          type="file"
           id="flower_image_url"
-          {...register("photo", {
-            required: "flower Image Is Required",
-          })}
-          placeholder="Paste an image URL to attract customers"
-          className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+          {...register("photo", { required: "Flower Image is required" })}
+          className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-purple-500"
         />
         {errors.photo && (
           <p className="text-red-500 text-sm font-semibold">
@@ -115,7 +180,7 @@ const AddFlowerForm = ({ insertFlower }) => {
         )}
       </div>
 
-      {/* Add flower Button */}
+      {/* Add Flower Button */}
       <div>
         <button
           type="submit"

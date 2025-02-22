@@ -1,4 +1,3 @@
-import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { insertFlower } from "../actions/insertFlowers/addFlowers";
 import AddFlowerForm from "./AddFlowerForm";
 
