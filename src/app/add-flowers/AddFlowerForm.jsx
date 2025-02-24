@@ -2,7 +2,8 @@
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 
-const imgBB_key = import.meta.env.VITE_IMG_API_key;
+const imgBB_key = process.env.NEXT_PUBLIC_IMG_API_KEY;
+console.log(imgBB_key);
 const hostingAPI = `https://api.imgbb.com/1/upload?key=${imgBB_key}`;
 
 const AddFlowerForm = ({ insertFlower }) => {
